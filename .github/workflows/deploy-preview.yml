@@ -16,7 +16,7 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         id: deploy-vercel-preview
         run: |
-          DEPLOYMENT_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          DEPLOYMENT_URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})
           echo "preview-url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
   e2e:
     needs: [Deploy-Preview]
