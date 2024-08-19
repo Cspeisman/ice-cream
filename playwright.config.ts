@@ -20,9 +20,11 @@ export default defineConfig({
   reporter: 'html',
 
   use: {
+    extraHTTPHeaders: {
+      'x-vercel-protection-bypass': process.env['VERCEL_AUTOMATION_BYPASS_SECRET'] ?? '',
+    },
     // Base URL to use in actions like `await page.goto('/')`.
     baseURL: process.env['PLAYWRIGHT_TEST_BASE_URL'] || 'http://localhost:4321',
-
     // Collect trace when retrying the failed test.
     // trace: 'on-first-retry',
   },
